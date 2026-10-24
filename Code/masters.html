@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Каталог проверенных мастеров Домашнего помощника">
+  <title>Мастера — Домашний помощник</title>
+  <link rel="stylesheet" href="assets/css/modern-pages.css">
+  <link rel="stylesheet" href="assets/css/masters.css?v=20260930-functional">
+  <script src="assets/js/masters-safe.js?v=20260929-functional" defer></script>
+    <link rel="stylesheet" href="assets/css/desktop-pages.css?v=20260930-1">
+    <link rel="stylesheet" href="assets/css/mobile-pages.css?v=20260930-1">
+    <script defer src="assets/js/mobile-pages.js?v=20260930-1"></script>
+</head>
+<body class="page page-masters">
+  <a class="skip-link" href="#main">К содержимому</a>
+  <header class="dp-header"><div class="dp-header-inner"><a class="dp-brand" href="/" aria-label="Домашний помощник — главная"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m3 10 9-7 9 7v11h-6v-8H9v8H3Z"/></svg><span>домашний<br>помощник</span></a><nav class="dp-nav" aria-label="Основная навигация"><a href="/masters" aria-current="page">Мастера</a><a href="/about">О платформе</a><a href="/support">Поддержка</a><a href="/account">Кабинет</a><a class="dp-button" href="/application">Оставить заявку</a></nav></div></header>
+  
+  <main id="main" class="masters-main">
+    <section class="masters-hero" aria-labelledby="page-title">
+      <p class="eyebrow">Каталог исполнителей</p>
+      <h1 id="page-title">Найдите мастера под задачу</h1>
+      <p class="hero-copy">Сравните направления, опыт и район. Исполнитель будет назначен администратором после оформления заявки.</p>
+    </section>
+    <section class="masters-toolbar" aria-label="Фильтры каталога">
+      <label>Услуга или имя<input id="search" type="search" placeholder="Например, электрик" autocomplete="off"></label>
+      <label>Район<input id="district" type="search" placeholder="Любой район" autocomplete="address-level3"></label>
+      <label>Сортировка<select id="sort"><option value="rating">По рейтингу</option><option value="experience">По опыту</option><option value="price">По цене</option></select></label>
+      <button class="master-primary" id="reset" type="button">Сбросить</button>
+    </section>
+    <div class="masters-status" id="status" role="status" aria-live="polite"></div>
+    <section class="masters-grid" id="master-list" aria-label="Список мастеров"></section>
+    <section class="masters-empty" id="empty" hidden>
+      <div class="empty-mark" aria-hidden="true">⌕</div>
+      <h2>Подходящих мастеров пока нет</h2>
+      <p>Попробуйте изменить район или оставьте заявку — администратор подберёт исполнителя по задаче.</p>
+      <a class="master-outline" href="/application">Оставить заявку</a>
+    </section>
+  </main>
+  <dialog class="master-dialog" id="detail-dialog" aria-labelledby="detail-title">
+    <button class="modal-close" id="close-detail" type="button" aria-label="Закрыть карточку">×</button>
+    <div id="detail-content"></div>
+  </dialog>
+  
+<footer class="dp-footer"><a class="dp-brand" href="/" aria-label="Домашний помощник — главная"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m3 10 9-7 9 7v11h-6v-8H9v8H3Z"/></svg><span>домашний<br>помощник</span></a><p>Домашние дела становятся проще.</p><nav aria-label="Дополнительная навигация"><a href="/referral">Приглашения</a><a href="/roadmap">Развитие</a><a href="/support">Поддержка</a></nav></footer>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Кабинет мастера — Домашний помощник</title>
+  <link rel="stylesheet" href="assets/css/modern-pages.css">
+  <link rel="stylesheet" href="assets/css/master.css">
+  <script src="assets/js/master-safe.js?v=20260929-functional" defer></script>
+    <link rel="stylesheet" href="assets/css/desktop-pages.css?v=20260930-1">
+    <link rel="stylesheet" href="assets/css/mobile-pages.css?v=20260930-1">
+    <script defer src="assets/js/mobile-pages.js?v=20260930-1"></script>
+</head>
+<body class="page page-master">
+  <a class="skip-link" href="#main">К содержимому</a>
+  <header class="dp-header"><div class="dp-header-inner"><a class="dp-brand" href="/" aria-label="Домашний помощник — главная"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m3 10 9-7 9 7v11h-6v-8H9v8H3Z"/></svg><span>домашний<br>помощник</span></a><nav class="dp-nav" aria-label="Основная навигация"><a href="/masters">Мастера</a><a href="/about">О платформе</a><a href="/support">Поддержка</a><a href="/account">Кабинет</a><a class="dp-button" href="/application">Оставить заявку</a></nav></div></header>
+  <main id="main" class="master-main">
+    <div class="master-heading">
+      <div>
+        <h1>Кабинет мастера</h1>
+        <p id="welcome">Загрузка данных…</p>
+      </div>
+      <button class="master-outline" id="logout" type="button">Выйти из аккаунта</button>
+    </div>
+    <p id="global-message" class="master-message" role="status" aria-live="polite" hidden></p>
+    <section class="master-section" aria-labelledby="notifications-title"><div class="master-section-title"><h2 id="notifications-title">Уведомления</h2><button type="button" class="master-outline" id="mark-notifications-read">Отметить прочитанными</button></div><div id="notifications-list" class="master-list"><p>Загрузка…</p></div></section>
+    <nav class="master-tabs" aria-label="Разделы кабинета">
+      <a href="#requests">Заявки</a>
+      <a href="#profile">Анкета</a>
+      <a href="#services">Услуги</a>
+      <a href="#schedule">График</a>
+      <a href="#portfolio">Работы</a>
+    </nav>
+    <section id="requests" class="master-section">
+      <div class="master-section-title"><h2>Заявки</h2><button type="button" class="master-outline" id="reload-requests">Обновить</button></div>
+      <p class="master-hint">Заявки из каталога поступают после назначения администратором.</p>
+      <div id="request-list" class="master-list"><p>Загрузка заявок…</p></div>
+    </section>
+    <section id="profile" class="master-section">
+      <h2>Анкета мастера</h2>
+      <p id="moderation" class="master-hint"></p>
+      <form id="profile-form">
+        <div class="master-grid">
+          <label>Название профиля<input name="title" minlength="4" maxlength="100" required></label>
+          <label>Город<input name="city" minlength="2" maxlength="80" required></label>
+          <label>Район<input name="district" minlength="2" maxlength="80" required></label>
+          <label>Опыт, лет<input name="experience" type="number" min="0" max="60" required></label>
+          <label class="master-wide">О себе<textarea name="bio" minlength="30" maxlength="3000" rows="5" required></textarea></label>
+        </div>
+        <label class="master-check"><input type="checkbox" name="available"> Принимаю новые заявки</label>
+        <button class="master-primary" type="submit">Сохранить анкету</button>
+      </form>
+    </section>
+    <section id="services" class="master-section">
+      <h2>Мои услуги</h2>
+      <p class="master-hint">Добавьте хотя бы одну услугу: она нужна для проверки профиля и назначения на заявку.</p>
+      <div id="service-list" class="master-list"></div>
+      <form id="service-form">
+        <h3 id="service-form-title">Добавить услугу</h3>
+        <input type="hidden" name="service_id">
+        <div class="master-grid">
+          <label>Категория<select name="category_id" required></select></label>
+          <label>Название<input name="title" minlength="4" maxlength="120" required></label>
+          <label>Цена работы, ₽<input name="price" type="number" min="0" max="1000000" required></label>
+          <label>Продолжительность, минут<input name="duration" type="number" min="30" max="480" value="60" required></label>
+          <label class="master-wide">Описание<textarea name="description" maxlength="1500" rows="3"></textarea></label>
+        </div>
+        <label class="master-check"><input type="checkbox" name="active" checked> Услуга активна</label>
+        <div class="master-actions"><button class="master-primary" type="submit">Сохранить услугу</button><button type="button" class="master-outline" id="service-reset" hidden>Отмена</button></div>
+      </form>
+    </section>
+    <section id="schedule" class="master-section">
+      <h2>Рабочий график</h2>
+      <p class="master-hint">Укажите время по Москве. График нужен для публикации анкеты.</p>
+      <form id="schedule-form">
+        <div id="schedule-days" class="master-days"></div>
+        <button class="master-primary" type="submit">Сохранить график</button>
+      </form>
+    </section>
+    <section id="portfolio" class="master-section">
+      <h2>Примеры работ</h2>
+      <p class="master-hint">Фото помогают заказчику оценить ваш опыт. Загружайте только свои работы.</p>
+      <div id="portfolio-list" class="master-portfolio"></div>
+      <form id="portfolio-form" class="master-upload">
+        <label>Фото JPEG, PNG или WebP до 5 МБ<input type="file" name="file" accept="image/jpeg,image/png,image/webp" required></label>
+        <button class="master-primary" type="submit">Загрузить фото</button>
+      </form>
+    </section>
+  </main>
+<footer class="dp-footer"><a class="dp-brand" href="/" aria-label="Домашний помощник — главная"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m3 10 9-7 9 7v11h-6v-8H9v8H3Z"/></svg><span>домашний<br>помощник</span></a><p>Домашние дела становятся проще.</p><nav aria-label="Дополнительная навигация"><a href="/referral">Приглашения</a><a href="/roadmap">Развитие</a><a href="/support">Поддержка</a></nav></footer>
+</body>
+</html>
