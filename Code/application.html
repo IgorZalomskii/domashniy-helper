@@ -16,7 +16,7 @@
     <header class="dp-header"><div class="dp-header-inner"><a class="dp-brand" href="/" aria-label="Домашний помощник — главная"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m3 10 9-7 9 7v11h-6v-8H9v8H3Z"/></svg><span>домашний<br>помощник</span></a><nav class="dp-nav" aria-label="Основная навигация"><a href="/masters">Мастера</a><a href="/about">О платформе</a><a href="/support">Поддержка</a><a href="/account">Кабинет</a><a class="dp-button" href="/application">Оставить заявку</a></nav></div></header>
 
     <!-- Выдвижное меню -->
-    
+
 
     <!-- Модальное окно выбора услуги -->
         <div class="service-modal" id="serviceModal" role="dialog" aria-modal="true" aria-label="Выбор услуги" aria-hidden="true">
@@ -27,7 +27,7 @@
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-            
+
             <div class="service-toggle">
                 <button class="service-toggle-btn active" id="cleaningBtn">
                     <i class="fas fa-broom"></i> Клининг
@@ -36,7 +36,7 @@
                     <i class="fas fa-tools"></i> Услуги мастера
                 </button>
             </div>
-            
+
             <div class="services-container">
                 <!-- Таблица для десктопной версии -->
                 <table class="services-table" id="servicesTable">
@@ -52,7 +52,7 @@
                         <!-- Данные будут заполняться через JavaScript -->
                     </tbody>
                 </table>
-                
+
                 <!-- Карточки для мобильной версии -->
                 <div class="service-cards" id="serviceCards">
                     <!-- Данные будут заполняться через JavaScript -->
@@ -66,7 +66,7 @@
         <!-- Форма заявки -->
         <div class="application-form">
             <p class="dp-eyebrow">Несколько минут — и готово</p><h1 class="form-title">Оформление заявки</h1><p>Расскажите, с чем нужна помощь. Детали можно будет уточнить в чате с назначенным мастером.</p>
-            
+
             <form id="masterRequestForm">
                 <div class="form-row">
                     <div class="form-col">
@@ -82,17 +82,17 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="form-group">
                     <label class="form-label" for="phone">Контактный телефон</label>
                     <input type="tel" class="form-input" id="phone" name="whatsapp" autocomplete="tel" placeholder="+7 (999) 999-99-99" required>
                 </div>
-                
+
                 <div class="form-group">
                     <label class="form-label" for="address">Адрес</label>
                     <input type="text" class="form-input" id="address" name="address" autocomplete="street-address" placeholder="Введите полный адрес" required>
                 </div>
-                
+
                 <!-- Новый раздел выбора услуги -->
                 <div class="form-group service-selection">
                     <label class="form-label" for="openServiceModal">Выберите услугу</label>
@@ -104,12 +104,12 @@
                         <div class="service-price" id="selectedServicePrice">Цена услуги</div>
                     </div>
                 </div>
-                
+
                 <div class="form-group">
                     <label class="form-label" for="problem">Описание задачи</label>
                     <textarea class="form-textarea" id="problem" name="problem" placeholder="Опишите, что нужно сделать..." required></textarea>
                 </div>
-                
+
                 <div class="form-group">
                     <label class="form-label">Удобное время</label>
                     <div class="order-type">
@@ -120,13 +120,13 @@
                             <i class="fas fa-calendar"></i> Указать время
                         </button>
                     </div>
-                    
+
                     <div class="date-picker" id="datePicker">
                         <label class="form-label" for="dateTimePicker">Выберите дату и время</label>
                         <input type="datetime-local" class="form-input" id="dateTimePicker">
                     </div>
                 </div>
-                
+
                 <button type="submit" class="submit-btn" id="submitBtn">
                     <i class="fas fa-paper-plane"></i> Отправить заявку
                 </button>

@@ -1,0 +1,421 @@
+:root {
+            --primary-color: #205747;
+            --primary-light: #397b60;
+            --primary-dark: #12392e;
+            --text-color: #333;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--light-gray);
+            transition: all 0.3s ease;
+        }
+
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        /* Шапка */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: var(--white);
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .header-title {
+            font-size: 2rem;
+            margin: 0 auto;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: max-content;
+        }
+
+        /* Кнопка меню */
+        .menu-btn {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Выдвижное меню */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 280px;
+            height: 100%;
+            background-color: var(--white);
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: left 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.open {
+            left: 0;
+        }
+
+        .menu-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: var(--white);
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-menu {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .menu-items {
+            padding: 1rem 0;
+        }
+
+        .menu-item {
+            display: block;
+            padding: 12px 20px;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .menu-item:hover {
+            background-color: rgba(32,87,71, 0.05);
+            border-left: 4px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .menu-icon {
+            width: 24px;
+            margin-right: 10px;
+            text-align: center;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .menu-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Основной контент */
+        .main-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        /* Контейнер дорожной карты */
+        .roadmap-container {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .roadmap-title {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            position: relative;
+        }
+
+        .roadmap-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .roadmap-description {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Галерея презентации */
+        .presentation-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .slide-item {
+            background: var(--light-gray);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .slide-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .slide-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .slide-content {
+            padding: 1.5rem;
+        }
+
+        .slide-number {
+            background: var(--primary-color);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .slide-title {
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .slide-description {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Навигация по слайдам */
+        .slide-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Полноэкранный просмотр */
+        .slide-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 8px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 20px;
+        }
+
+        .modal-nav-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: background 0.3s ease;
+        }
+
+        .modal-nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 1.5rem;
+                position: static;
+                transform: none;
+                margin: 0.5rem 0;
+                order: 2;
+                width: 100%;
+                text-align: center;
+                padding: 0 50px;
+            }
+
+            .header-container {
+                flex-wrap: wrap;
+            }
+
+            .menu-btn {
+                order: 1;
+            }
+
+            .main-container {
+                margin: 1rem auto;
+                padding: 0 15px;
+            }
+
+            .roadmap-container {
+                padding: 1.5rem;
+            }
+
+            .roadmap-title {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .presentation-gallery {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .slide-content {
+                padding: 1rem;
+            }
+
+            .slide-title {
+                font-size: 1.1rem;
+            }
+
+            .slide-navigation {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-btn {
+                width: 100%;
+                max-width: 250px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-title {
+                font-size: 1.3rem;
+                padding: 0 40px;
+            }
+
+            .roadmap-title {
+                font-size: 1.5rem;
+            }
+
+            .roadmap-description {
+                font-size: 1rem;
+            }
+
+            .slide-image {
+                height: 180px;
+            }
+
+            .modal-nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
